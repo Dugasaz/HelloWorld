@@ -13,11 +13,9 @@
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 		<app.runtime>4.3.0-20201013</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -43,13 +41,7 @@
             <version>1.5.22</version>
             <classifier>mule-plugin</classifier>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.mule.tools.maven/mule-maven-plugin -->
-        <dependency>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.8.0</version>
-</dependency>
-<dependency>
+    <dependency>
     <groupId>org.mule.tools.maven</groupId>
     <artifactId>mule-maven-plugin</artifactId>
     <version>3.2.1</version>
