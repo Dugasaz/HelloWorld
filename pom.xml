@@ -26,7 +26,7 @@
     </snapshotRepository>
 </distributionManagement>
 	<build>
-		<plugins>
+	  <plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -41,37 +41,72 @@
 				</configuration>
 			</plugin>
 			<plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-compiler-plugin</artifactId>
-	<version>3.1</version>
-	<configuration>
-		<verbose>true</verbose>
-		<fork>true</fork>
-		<executable>${JAVA8_HOME}/bin/javac</executable>
-	</configuration>
-</plugin>
+	         <groupId>org.apache.maven.plugins</groupId>
+	         <artifactId>maven-compiler-plugin</artifactId>
+	         <version>3.1</version>
+	         <configuration>
+		     <verbose>true</verbose>
+		     <fork>true</fork>
+		     <executable>${JAVA8_HOME}/bin/javac</executable>
+	        </configuration>
+            </plugin>
 			<plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.0</version>
-        <configuration>
-          <url>http://www.mydomain.com:1234/mymanager</url>
-        </configuration>
-      </plugin>
-      <plugin>
-   <groupId>org.apache.maven.plugins</groupId>
-   <artifactId>maven-source-plugin</artifactId>
-   <executions>
-      <execution>
-         <phase>package</phase>
-         <goals>
-            <goal>jar-no-fork</goal>
-         </goals>
-      </execution>
-   </executions>
-</plugin>
-		</plugins>
-	</build>
+              <groupId>org.apache.tomcat.maven</groupId>
+              <artifactId>tomcat7-maven-plugin</artifactId>
+              <version>2.0</version>
+                <configuration>
+                   <url>http://www.mydomain.com:1234/mymanager</url>
+                </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+            <execution>
+              <phase>package</phase>
+               <goals>
+               <goal>jar-no-fork</goal>
+              </goals>
+             </execution>
+           </executions>
+          </plugin>
+				<!-- Deploy to Cloudhub -->
+		  <plugin>
+           <groupId>org.mule.tools.maven</groupId>
+            <artifactId>mule-maven-plugin</artifactId>
+            <version>2.3.2</version>
+            <configuration>
+		        <cloudHubDeployment>
+		            <uri>https://anypoint.mulesoft.com</uri>
+		            <muleVersion>${mule.version}</muleVersion>
+		            <username>${anypoint.username}</username>
+		            <password>${anypoint.password}</password>
+		            <applicationName>mulesoft-jenkins-ci-cd</applicationName>
+		            <environment>${anypoint.environment}</environment>
+		            <properties>
+		                <key>value</key>
+		            </properties>
+		        </cloudHubDeployment>
+		    </configuration>
+           	<executions>
+               <execution>
+                  <id>deploy</id>
+                  <phase>deploy</phase>
+                  <goals>
+                     <goal>deploy</goal>
+                  </goals>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+               <skip>true</skip>
+            </configuration>
+         </plugin>
+       </plugins>
+    </build>
 
 	<dependencies>
         <dependency>
