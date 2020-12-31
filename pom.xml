@@ -36,8 +36,8 @@
         <cloudHubDeployment>
           <uri>https://anypoint.mulesoft.com</uri>
           <muleVersion>4.2.2</muleVersion>
-          <username>muleisy</username>
-          <password>*****</password>
+          <username>Gudaa</username>
+          <password>Mulesoft14</password>
           <applicationName>hello-world-maven</applicationName>
           <environment>Sandbox</environment>
           <workerType>MICRO</workerType>
