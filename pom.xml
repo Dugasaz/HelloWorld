@@ -41,8 +41,9 @@
 		            <muleVersion>4.3.0</muleVersion>
 		            <username>Gudaa</username>
 		            <password>Mulesoft14</password>
-		            <applicationName>helloworld1</applicationName>
+		            <applicationName>hello-world</applicationName>
 		            <environment>Sandbox</environment>
+		            <workerType>MICRO</workerType>
 		        </cloudHubDeployment>				
 				</configuration>
 			</plugin>
