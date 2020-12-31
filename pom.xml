@@ -4,27 +4,21 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>helloworld</artifactId>
+	<artifactId>helloworld1</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-   	<name>helloworld</name>
-       <properties>
+    <packaging>mule-application</packaging>
+
+	<name>helloworld1</name>
+    <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
 		<app.runtime>4.3.0-20201013</app.runtime>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
-<distributionManagement>
-    <repository>
-        <id>releases</id>
-        <url>http://domain:port/content/repositories/releases</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <url>http://domain:port/content/repositories/snapshots</url>
-    </snapshotRepository>
-</distributionManagement>
+
 	<build>
-	  <plugins>
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -36,72 +30,18 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-				</configuration>
-			</plugin>
-			<plugin>
-	         <groupId>org.apache.maven.plugins</groupId>
-	         <artifactId>maven-compiler-plugin</artifactId>
-	         <version>3.1</version>
-	         <configuration>
-		     <verbose>true</verbose>
-		     <fork>true</fork>
-		     <executable>${JAVA8_HOME}/bin/javac</executable>
-	        </configuration>
-            </plugin>
-			<plugin>
-              <groupId>org.apache.tomcat.maven</groupId>
-              <artifactId>tomcat7-maven-plugin</artifactId>
-              <version>2.0</version>
-                <configuration>
-                   <url>http://www.mydomain.com:1234/mymanager</url>
-                </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <executions>
-            <execution>
-              <phase>package</phase>
-               <goals>
-               <goal>jar-no-fork</goal>
-              </goals>
-             </execution>
-           </executions>
-          </plugin>
-				<!-- Deploy to Cloudhub -->
-		  <plugin>
-            <configuration>
 		        <cloudHubDeployment>
 		            <uri>https://anypoint.mulesoft.com</uri>
-		            <muleVersion>${mule.version}</muleVersion>
-		            <username>${anypoint.username}</username>
-		            <password>${anypoint.password}</password>
-		            <applicationName>mulesoft-jenkins-ci-cd</applicationName>
-		            <environment>${anypoint.environment}</environment>
-		            <properties>
-		                <key>value</key>
-		            </properties>
-		        </cloudHubDeployment>
-		    </configuration>
-           	<executions>
-               <execution>
-                  <id>deploy</id>
-                  <phase>deploy</phase>
-                  <goals>
-                     <goal>deploy</goal>
-                  </goals>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-deploy-plugin</artifactId>
-            <configuration>
-               <skip>true</skip>
-            </configuration>
-         </plugin>
-       </plugins>
-    </build>
+		            <muleVersion>4.3.0</muleVersion>
+		            <username>Gudaa</username>
+		            <password>Mulesoft14</password>
+		            <applicationName>helloworld1</applicationName>
+		            <environment>Sandbox</environment>
+		        </cloudHubDeployment>				
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
         <dependency>
@@ -110,30 +50,24 @@
             <version>1.5.22</version>
             <classifier>mule-plugin</classifier>
         </dependency>
-    <dependency>
-    <groupId>org.mule.tools.maven</groupId>
-    <artifactId>mule-maven-plugin</artifactId>
-    <version>3.2.1</version>
-</dependency>
-   <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-project -->
-<dependency>
-    <groupId>org.apache.maven</groupId>
-    <artifactId>maven-project</artifactId>
-    <version>2.2.1</version>
-</dependency>     
-     
         <dependency>
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-sockets-connector</artifactId>
             <version>1.2.0</version>
             <classifier>mule-plugin</classifier>
         </dependency>
-              <dependency>
+        <dependency>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-deploy-plugin</artifactId>
     <version>2.8.2</version>
-     </dependency>
+    </dependency>
+    <dependency>
+    <groupId>org.mule.tools.maven</groupId>
+    <artifactId>mule-maven-plugin</artifactId>
+    <version>3.3.5</version>
+   </dependency>
 	</dependencies>
+
 	<repositories>
           <repository>
             <id>anypoint-exchange-v2</id>
