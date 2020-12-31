@@ -38,7 +38,7 @@
           <muleVersion>4.2.2</muleVersion>
           <username>Gudaa</username>
           <password>Mulesoft14</password>
-          <applicationName>hello-world-maven</applicationName>
+          <applicationName>hello-world-maven-muleisy</applicationName>
           <environment>Sandbox</environment>
           <workerType>MICRO</workerType>
           <properties>
